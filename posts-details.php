@@ -175,7 +175,7 @@ include 'includes/header.php';
                         <div class="votes votes-styled w-auto">
                             <div id="vote" class="upvotejs">
 
-                            <?php     $votes = $data->getData("SELECT * FROM votes WHERE postId = '".$_GET['8829988P']."' ");
+                            <?php     $votes = $data->getData("SELECT * FROM votes WHERE postId = '".$_GET['8829988P']."' AND userId = '".$_SESSION["Userid"]."' ");
                                         if($votes == NULL){
                              ?>
 
@@ -203,7 +203,7 @@ include 'includes/header.php';
                         <div class="votes votes-styled w-auto">
                             <div id="vote" class="upvotejs">
 
-                            <?php     $favorites = $data->getData("SELECT * FROM favorites WHERE postId = '".$_GET['8829988P']."' ");
+                            <?php     $favorites = $data->getData("SELECT * FROM favorites WHERE postId = '".$_GET['8829988P']."' AND userId = '".$_SESSION["Userid"]."'  ");
                                         if($favorites == NULL){
                              ?>
 

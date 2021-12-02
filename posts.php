@@ -128,7 +128,6 @@ include 'includes/header.php';
 // find out how many rows are in the table 
            
 $numrows = $data->getNumRows("SELECT * FROM posts WHERE title LIKE '%".$search."%' OR details LIKE '%".$search."%'  OR tags LIKE '%".$search."%'  OR tags LIKE '%".$tags."%' "); 
-
 if(isset($_GET['perpage'])){
     $perpage = $_GET['perpage'];
 }else{
@@ -175,10 +174,9 @@ $posts = $data->getData("SELECT *, (SELECT COUNT(id) AS count FROM votes WHERE p
  ORDER BY posts.id DESC LIMIT $offset, $rowsperpage");
 
 
-
 foreach($posts as $row) {
 
-    if($tags != ''){
+    if(isset($_GET['tags'])){
 
     $tagsArray = explode(",",$row['tags']);
 

@@ -200,7 +200,7 @@ class Auth
 				VALUES ('".$_POST["name"]."','".$_POST["email"]."', '".md5($_POST["passwd"])."','active','user', NOW())";
 				$userSaved = mysqli_query($this->dbConnect->con, $insertQuery);
 				if($userSaved) {
-					$message = 'User registered. <a href="login.php">Login</a>';
+					$message = 'User has successfuly registered. <a href="login.php">Login</a>';
 				} else {
 					$message = 'User register request failed.';
 				}

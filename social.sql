@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 09:57 AM
+-- Generation Time: Dec 01, 2021 at 07:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -41,7 +41,27 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `userId`, `postId`, `comment`, `datetime`) VALUES
 (1, 2, 2, 'asdasd', '2021-08-06 22:57:35'),
-(2, 2, 2, '', '2021-08-06 23:08:43');
+(2, 2, 2, '', '2021-08-06 23:08:43'),
+(3, 2, 7, 'asdasd', '2021-12-01 15:48:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `id` int(15) NOT NULL,
+  `userId` int(15) NOT NULL,
+  `postId` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`id`, `userId`, `postId`) VALUES
+(2, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -126,7 +146,7 @@ CREATE TABLE `votes` (
 INSERT INTO `votes` (`id`, `userId`, `postId`, `vote`) VALUES
 (14, 2, 1, '1'),
 (16, 2, 2, '1'),
-(29, 2, 7, '1');
+(53, 2, 7, '1');
 
 --
 -- Indexes for dumped tables
@@ -136,6 +156,12 @@ INSERT INTO `votes` (`id`, `userId`, `postId`, `vote`) VALUES
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -164,6 +190,12 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `favorites`
+--
+ALTER TABLE `favorites`
   MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -182,7 +214,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

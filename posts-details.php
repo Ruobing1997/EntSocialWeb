@@ -48,19 +48,32 @@ if(isset($_GET['8829988P'])){
         $isUpdated = $data->setData($sqlQuery);	
     }
 
-    if(isset($_POST['devote'])){
-        $sqlQuery = "INSERT INTO votes (userId, postId, vote) 
-        VALUES ('".$_SESSION["Userid"]."', '".$_GET['8829988P']."', '1' )";
+    // if(isset($_POST['devote'])){
+    //     $sqlQuery = "INSERT INTO votes (userId, postId, vote) 
+    //     VALUES ('".$_SESSION["Userid"]."', '".$_GET['8829988P']."', '1' )";
      
-        $isUpdated = $data->setData($sqlQuery);	
-    }
+    //     $isUpdated = $data->setData($sqlQuery);	
+    // }
 
-    }
 
     if(isset($_POST['devote'])){
         $data->setData("DELETE FROM votes WHERE userId = '".$_SESSION["Userid"]."' AND postId = '".$_GET['8829988P']."'");
       }
 
+
+      if(isset($_POST['favorite'])){
+        $sqlQuery = "INSERT INTO favorites (userId, postId) 
+        VALUES ('".$_SESSION["Userid"]."', '".$_GET['8829988P']."')";
+     
+        $isUpdated = $data->setData($sqlQuery);	
+    }
+
+
+    if(isset($_POST['defavorite'])){
+        $data->setData("DELETE FROM favorites WHERE userId = '".$_SESSION["Userid"]."' AND postId = '".$_GET['8829988P']."'");
+      }
+
+    }
     
     $posts = $data->getData("SELECT * FROM posts WHERE id = '".$_GET['8829988P']."' ");
     
@@ -147,7 +160,7 @@ include 'includes/header.php';
                                                                     foreach($tags as $tags){
                                                                    
                                                                 ?>
-                                    <a href="#" class="tag-link"><?= $tags; ?></a>
+                                    <a href="posts.php?tags=<?= $key ?>" class="tag-link"><?= $tags; ?></a>
 
                                     <?php 
                                                                     }
@@ -157,7 +170,7 @@ include 'includes/header.php';
                         </div><!-- end media -->
                     </div><!-- end question-highlight -->
                     <div class="question d-flex">
-                    <form <?php if(isset($_SESSION["Userid"])){ ?> action=""  <?php }else{ ?> action="login.php" method="post"<?php } ?> >
+                    <form <?php if(isset($_SESSION["Userid"])){ ?> action=""  method="post" <?php }else{ ?> action="login.php" method="post"<?php } ?> >
 
                         <div class="votes votes-styled w-auto">
                             <div id="vote" class="upvotejs">
@@ -167,12 +180,12 @@ include 'includes/header.php';
                              ?>
 
                                 <button type="submit" name="vote" data-toggle="tooltip" data-placement="right" style=" border: none; background: Transparent;"
-                                    title="This question is useful"><i class="fad fa-thumbs-up fa-1x"></i></button>
+                                    title="This post is useful"><i class="fad fa-thumbs-up fa-1x"></i></button>
 
                                     <?php } else { ?>
 
                                     <button type="submit" name="devote" data-toggle="tooltip" data-placement="right" style=" border: none; background: Transparent;"
-                                    title="This question is not useful"><i class="fa fa-thumbs-up fa-1x"></i></button>
+                                    title="This post is not useful"><i class="fa fa-thumbs-up fa-1x"></i></button>
 
                                     <?php } ?>
 
@@ -184,6 +197,27 @@ include 'includes/header.php';
 <!--                         
                                 <a class="star" data-toggle="tooltip" data-placement="right"
                                     title="Bookmark this question."></a> -->
+                            </div>
+                        </div><!-- end votes -->
+
+                        <div class="votes votes-styled w-auto">
+                            <div id="vote" class="upvotejs">
+
+                            <?php     $favorites = $data->getData("SELECT * FROM favorites WHERE postId = '".$_GET['8829988P']."' ");
+                                        if($favorites == NULL){
+                             ?>
+
+                                <button type="submit" name="favorite" data-toggle="tooltip" data-placement="right" style=" border: none; background: Transparent;"
+                                title="Favorite"><i class="far fa-heart"></i></button>
+
+                                    <?php } else { ?>
+
+                                    <button type="submit" name="defavorite" data-toggle="tooltip" data-placement="right" style=" border: none; background: Transparent;"
+                                    title="Not favorite"><i class="fas fa-heart"></i></button>
+
+                                    <?php } ?>
+
+
                             </div>
                         </div><!-- end votes -->
                         </form>

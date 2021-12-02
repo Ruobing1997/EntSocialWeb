@@ -12,6 +12,18 @@ if(isset($_GET['search'])){
     $search = '';
 }
 
+if(isset($_GET['tags'])){
+
+    if($_GET['tags'] == ''){
+        $tags = '';
+    }else{
+        $tags =  $_GET['tags'] ;
+    }
+
+}else{
+    $tags = '';
+}
+
 function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
@@ -115,7 +127,7 @@ include 'includes/header.php';
 
 // find out how many rows are in the table 
            
-$numrows = $data->getNumRows("SELECT * FROM posts WHERE title LIKE '%".$search."%' OR details LIKE '%".$search."%'  OR tags LIKE '%".$search."%'"); 
+$numrows = $data->getNumRows("SELECT * FROM posts WHERE title LIKE '%".$search."%' OR details LIKE '%".$search."%'  OR tags LIKE '%".$search."%'  OR tags LIKE '%".$tags."%' "); 
 
 if(isset($_GET['perpage'])){
     $perpage = $_GET['perpage'];
@@ -166,6 +178,11 @@ $posts = $data->getData("SELECT *, (SELECT COUNT(id) AS count FROM votes WHERE p
 
 foreach($posts as $row) {
 
+    if($tags != ''){
+
+    $tagsArray = explode(",",$row['tags']);
+
+    if (in_array("$tags", $tagsArray)){
 
 
 
@@ -202,7 +219,7 @@ foreach($posts as $row) {
                                                             foreach($tags as $tags){
                                                            
                                                         ?>
-                                                        <a href="#" class="tag-link"><?= $tags; ?></a>
+                                                        <a href="posts.php?tags=<?= $tags ?>" class="tag-link"><?= $tags; ?></a>
 
                                                         <?php 
                                                             }
@@ -216,7 +233,51 @@ foreach($posts as $row) {
 
                                         <?php
 }
+}  else {
+
+    ?>
+                <div class="postss-snippet">
+
                                         
+
+
+<div class="media media-card media--card align-items-center">
+<div class="votes answered-accepted">
+<div class="vote-block d-flex align-items-center justify-content-between" title="Votes">
+<span class="vote-counts"><?= $row['rank'] ?></span>
+<i class="ml-2 fad fa-thumbs-up"></i>
+</div>
+<div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
+<span class="vote-counts"><?= $row['comments_rank'] ?></span>
+<i class="ml-2 fad fa-comments"></i>
+</div>
+</div>
+
+    <div class="media-body">
+        <h5><a href="posts-details.php?8829988P=<?= $row['postId'] ?>"><?= $row['title'] ?></a></h5>
+        <small class="meta">
+            <span class="pr-1"><?= time_elapsed_string($row['date']); ?></span>
+        </small>
+        <div class="tags">
+            <?php $tags =  explode(",",$row['tags']); 
+                foreach($tags as $tags){
+               
+            ?>
+            <a href="posts.php?tags=<?= $tags ?>" class="tag-link"><?= $tags; ?></a>
+
+            <?php 
+                }
+            ?>
+           
+        </div>
+    </div>
+</div><!-- end media -->
+
+</div><!-- end postss-snippet -->
+    <?php
+
+}     
+}                     
                                         ?>
 
 
@@ -395,6 +456,60 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
             <div class="col-md-4">
                 <div class="sidebar">
 
+                <?php 
+                    if(isset($_SESSION["Userid"])){
+                ?>
+
+                <div class="card card-item p-4">
+                        <h3 class="fs-17 pb-3">Posts Suggested</h3>
+                        <div class="divider"><span></span></div>
+                        <div class="sidebar-questions pt-3">
+
+                        <?php
+                        $tagesArray =   array();
+                        $favorites = $data->getData("SELECT * FROM favorites 
+                        LEFT JOIN posts ON favorites.postId = posts.id 
+                        WHERE favorites.userId = '".$_SESSION["Userid"]."'");
+                                                    foreach($favorites as $favorites){
+                                                        $tagesArray[] =  $favorites['tags'];
+                                                    }
+
+                              $in = implode(',', $tagesArray);
+
+                              $in = explode(",",$in);
+
+                            $posts = $data->getData("SELECT *, (SELECT COUNT(id) FROM votes WHERE postId = posts.id) AS `rank`, posts.id as postId FROM votes 
+                            LEFT JOIN posts ON votes.postId = posts.id ORDER BY `rank` DESC LIMIT 5");
+                            foreach($posts as $posts){
+                               
+                               
+                                $tagsArray = explode(",",$posts['tags']);
+
+                                if (array_intersect($tagsArray, $in)) { 
+
+
+
+                        ?>
+
+                            <div class="media media-card media--card media--card-2">
+                                <div class="media-body">
+                                    <h5><a href="posts-details.php?8829988P=<?= $posts['postId'] ?>"><?= $posts['title'] ?></a></h5>
+                                    <small class="meta">
+                                        <span class="pr-1"><?= time_elapsed_string($posts['date']); ?></span>
+                                        
+                                    </small>
+                                </div>
+                            </div><!-- end media -->
+
+                            <?php } } ?>
+                      
+                        </div><!-- end sidebar-questions -->
+                    </div><!-- end card -->
+
+                    <?php 
+                    }
+                ?>
+
                 <div class="card card-item p-4">
                         <h3 class="fs-17 pb-3">Tranding Posts</h3>
                         <div class="divider"><span></span></div>
@@ -402,9 +517,8 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
 
                         <?php
 
-                            $ask = $data->getData("SELECT *, (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, posts.id as postId FROM votes 
-                            LEFT JOIN posts
-                            ON votes.postId = posts.id ORDER BY rank desc LIMIT 5");
+                            $posts = $data->getData("SELECT *, (SELECT COUNT(id) FROM votes WHERE postId = posts.id) AS `rank`, posts.id as postId FROM votes 
+                            LEFT JOIN posts ON votes.postId = posts.id ORDER BY `rank` DESC LIMIT 5");
                             foreach($posts as $posts){
 
 
@@ -412,7 +526,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
 
                             <div class="media media-card media--card media--card-2">
                                 <div class="media-body">
-                                    <h5><a href="post-details.php?8829988P=<?= $posts['postId'] ?>"><?= $posts['title'] ?></a></h5>
+                                    <h5><a href="posts-details.php?8829988P=<?= $posts['postId'] ?>"><?= $posts['title'] ?></a></h5>
                                     <small class="meta">
                                         <span class="pr-1"><?= time_elapsed_string($posts['date']); ?></span>
                                         
@@ -455,7 +569,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                             ?>
 
                             <div class="tag-item">
-                                <a href="#" class="tag-link tag-link-md"><?= $key ?></a>
+                                <a href="posts.php?tags=<?= $key ?>" class="tag-link tag-link-md"><?= $key ?></a>
                                 <span class="item-multiplier fs-13">
                                     <span>×</span>
                                     <span><?= $tagsingle ?></span>

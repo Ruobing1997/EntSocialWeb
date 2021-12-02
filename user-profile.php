@@ -225,7 +225,7 @@ include 'includes/header.php';
 
                                     <div class="item tags d-flex align-items-center justify-content-between">
                                        <div class="flex-grow-1">
-                                           <a href="#" class="tag-link tag-link-md tag-link-blue mb-0"><?= $key ?></a>
+                                           <a href="posts.php?tags=<?= $key ?>" class="tag-link tag-link-md tag-link-blue mb-0"><?= $key ?></a>
                                        </div>
                                         <div class="user-stats d-flex align-items-center">
                                           
@@ -264,7 +264,7 @@ include 'includes/header.php';
 
                                 <?php
 
-                                    $posts = $data->getData("SELECT *, (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, 
+                                    $posts = $data->getData("SELECT *,posts.id as id, (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, 
                                     (SELECT COUNT(id) AS comments_count FROM comments WHERE postId = posts.id) AS comments_rank, posts.id as postId
                                     FROM votes 
                                     LEFT JOIN posts
@@ -288,7 +288,7 @@ include 'includes/header.php';
                                             </div>
                                         </div>
                                             <div class="media-body">
-                                                <h5><a href="posts-details.php?8829988P=<?= $posts['postsId'] ?>"><?= $posts['title'] ?></a></h5>
+                                                <h5><a href="posts-details.php?8829988P=<?= $posts['id'] ?>"><?= $posts['title'] ?></a></h5>
                                                 <small class="meta">
                                                     <span><?= date('F jS, Y', strtotime($posts['date'])) ?></span>
                                                 </small>
@@ -305,6 +305,64 @@ include 'includes/header.php';
                                     </div>
                                 </div><!-- end vertical-list -->
                             </div><!-- end user-panel -->
+
+
+                            <div class="user-panel mb-30px">
+                                <div class="bg-gray p-3 rounded-rounded d-flex align-items-center justify-content-between">
+                                    <h3 class="fs-17">Favorite Posts</h3>
+                                    <div class="select-container-wrap select--container-wrap d-flex align-items-center">
+                                    
+                                    </div>
+                                </div>
+                                <div class="vertical-list">
+
+                                <?php
+
+                                    $posts = $data->getData("SELECT *,posts.id as id,  (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, 
+                                    (SELECT COUNT(id) AS comments_count FROM comments WHERE postId = posts.id) AS comments_rank, posts.id as postId
+                                    FROM votes 
+                                    LEFT JOIN posts
+                                    ON votes.postId = posts.id
+                                    LEFT JOIN favorites
+                                    ON posts.id = favorites.postId
+                                    WHERE favorites.userId = '".$_SESSION["Userid"]."'  ORDER BY rank desc LIMIT 10");
+                                    foreach($posts as $posts){
+
+
+                                    ?>
+
+
+                                    <div class="item p-0">
+                                        <div class="media media-card media--card align-items-center shadow-none rounded-0 mb-0">
+                                        <div class="votes answered-accepted">
+                                            <div class="vote-block d-flex align-items-center justify-content-between" title="Votes">
+                                                <span class="vote-counts"><?= $posts['rank'] ?></span>
+                                                <i class="ml-2 fad fa-thumbs-up"></i>
+                                            </div>
+                                            <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
+                                                <span class="vote-counts"><?= $posts['comments_rank'] ?></span>
+                                                <i class="ml-2 fad fa-comments"></i>
+                                            </div>
+                                        </div>
+                                            <div class="media-body">
+                                                <h5><a href="posts-details.php?8829988P=<?= $posts['id'] ?>"><?= $posts['title'] ?></a></h5>
+                                                <small class="meta">
+                                                    <span><?= date('F jS, Y', strtotime($posts['date'])) ?></span>
+                                                </small>
+                                            </div>
+                                        </div><!-- end media -->
+                                    </div><!-- end item -->
+
+                                    <?php } ?>
+
+
+                                  
+                                    <div class="view-more pt-3 px-3">
+                                        <a href="favorites.php" class="btn-text fs-15">View all Favorites <i class="la la-arrow-right icon ml-1"></i></a>
+                                    </div>
+                                </div><!-- end vertical-list -->
+                            </div><!-- end user-panel -->
+                          
                           
                         </div><!-- end user-panel-main-bar -->
                     </div><!-- end tab-pane -->
@@ -412,7 +470,7 @@ include 'includes/header.php';
                                                                     foreach($tags as $tags){
                                                                    
                                                                 ?>
-                                                                <a href="#" class="tag-link"><?= $tags; ?></a>
+                                                                <a href="posts.php?tags=<?= $tags ?>" class="tag-link"><?= $tags; ?></a>
 
                                                                 <?php 
                                                                     }

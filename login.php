@@ -27,7 +27,7 @@ include 'includes/header.php';
                 <div class="col-lg-5 mx-auto">
                     <div class="form-action-wrapper py-5">
                         <div class="form-group">
-                            <h3 class="fs-22 pb-3 fw-bold">Log in to AskMyBrands</h3>
+                            <h3 class="fs-22 pb-3 fw-bold">Log in!</h3>
                             <div class="divider"><span></span></div>
                             <?php 
                                 if(!empty($errorMessage)){

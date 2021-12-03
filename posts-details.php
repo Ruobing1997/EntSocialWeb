@@ -170,12 +170,15 @@ include 'includes/header.php';
                         </div><!-- end media -->
                     </div><!-- end question-highlight -->
                     <div class="question d-flex">
-                    <form <?php if(isset($_SESSION["Userid"])){ ?> action=""  method="post" <?php }else{ ?> action="login.php" method="post"<?php } ?> >
+                    <?php if(isset($_SESSION["Userid"])){ ?> 
+                    <form action=""  method="post">
 
                         <div class="votes votes-styled w-auto">
                             <div id="vote" class="upvotejs">
 
-                            <?php     $votes = $data->getData("SELECT * FROM votes WHERE postId = '".$_GET['8829988P']."' AND userId = '".$_SESSION["Userid"]."' ");
+                            <?php 
+                            
+                                $votes = $data->getData("SELECT * FROM votes WHERE postId = '".$_GET['8829988P']."' AND userId = '".$_SESSION["Userid"]."' ");
                                         if($votes == NULL){
                              ?>
 
@@ -221,6 +224,46 @@ include 'includes/header.php';
                             </div>
                         </div><!-- end votes -->
                         </form>
+
+                        <?php }else{ ?>
+
+                            <form  action="login.php" method="post">
+
+<div class="votes votes-styled w-auto">
+    <div id="vote" class="upvotejs">
+
+
+        <button type="submit" name="vote" data-toggle="tooltip" data-placement="right" style=" border: none; background: Transparent;"
+            title="This post is useful"><i class="fad fa-thumbs-up fa-1x"></i></button>
+
+
+
+
+        <span class="count" >
+
+        <?php echo  $votes = $data->getNumRows("SELECT * FROM votes WHERE postId = '".$_GET['8829988P']."' "); ?>
+        </span>
+<!--                         
+        <a class="star" data-toggle="tooltip" data-placement="right"
+            title="Bookmark this question."></a> -->
+    </div>
+</div><!-- end votes -->
+
+<div class="votes votes-styled w-auto">
+    <div id="vote" class="upvotejs">
+
+
+        <button type="submit" name="favorite" data-toggle="tooltip" data-placement="right" style=" border: none; background: Transparent;"
+        title="Favorite"><i class="far fa-heart"></i></button>
+
+
+    </div>
+</div><!-- end votes -->
+</form>
+
+                            <?php } ?> 
+
+
                         <div class="question-post-body-wrap flex-grow-1">
                             <div class="question-post-body">
 
@@ -353,25 +396,25 @@ include 'includes/header.php';
                 <div class="sidebar">
 
                 <div class="card card-item p-4">
-                        <h3 class="fs-17 pb-3">Tranding Post</h3>
+                        <h3 class="fs-17 pb-3">Trending Post</h3>
                         <div class="divider"><span></span></div>
                         <div class="sidebar-questions pt-3">
 
                         <?php
 
-                            $posts = $data->getData("SELECT *, (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, posts.id as postId FROM votes 
+                            $Trending = $data->getData("SELECT *,posts.title as title, (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, posts.id as postId FROM votes 
                             LEFT JOIN posts
                             ON votes.postId = posts.id  GROUP by votes.postId ORDER BY rank desc LIMIT 5");
-                            foreach($posts as $posts){
+                            foreach($Trending as $Trending){
 
 
                         ?>
 
                             <div class="media media-card media--card media--card-2">
                                 <div class="media-body">
-                                    <h5><a href="posts-details.php?8829988P=<?= $posts['postId'] ?>"><?= $posts['title'] ?></a></h5>
+                                    <h5><a href="posts-details.php?8829988P=<?= $Trending['postId'] ?>"><?= $Trending['title'] ?></a></h5>
                                     <small class="meta">
-                                        <span class="pr-1"><?= time_elapsed_string($posts['date']); ?></span>
+                                        <span class="pr-1"><?= time_elapsed_string($Trending['date']); ?></span>
                                         
                                     </small>
                                 </div>
@@ -471,12 +514,12 @@ include 'includes/header.php';
          
                         </div>
                     </div><!-- end card -->
-                    <div class="ad-card">
+                    <!-- <div class="ad-card">
                         <h4 class="text-gray text-uppercase fs-13 pb-3 text-center">Advertisements</h4>
                         <div class="ad-banner mb-4 mx-auto">
                             <span class="ad-text">290x500</span>
                         </div>
-                    </div><!-- end ad-card -->
+                    </div>end ad-card -->
                 </div><!-- end sidebar -->
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->

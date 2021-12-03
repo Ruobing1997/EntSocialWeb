@@ -186,51 +186,47 @@ foreach($posts as $row) {
 
 
 ?>
+    <div class="postss-snippet">
 
 
 
 
-                                        <div class="postss-snippet">
+    <div class="media media-card media--card align-items-center">
+    <div class="votes answered-accepted">
+    <div class="vote-block d-flex align-items-center justify-content-between" title="Votes">
+    <span class="vote-counts"><?= $row['rank'] ?></span>
+    <i class="ml-2 fad fa-thumbs-up"></i>
+    </div>
+    <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
+    <span class="vote-counts"><?= $row['comments_rank'] ?></span>
+    <i class="ml-2 fad fa-comments"></i>
+    </div>
+    </div>
+        
+            <div class="media-body">
+                <h5><a href="posts-details.php?8829988P=<?= $row['postId'] ?>"><?= $row['title'] ?></a></h5>
+                <small class="meta">
+                    <span class="pr-1"><?= time_elapsed_string($row['date']); ?></span>
+                </small>
+                <div class="tags">
+                    <?php $tags =  explode(",",$row['tags']); 
+                        foreach($tags as $tags){
+                        
+                    ?>
+                    <a href="posts.php?tags=<?= $tags ?>" class="tag-link"><?= $tags; ?></a>
 
-                                        
+                    <?php 
+                        }
+                    ?>
+                    
+                </div>
+            </div>
+        </div><!-- end media -->
 
+    </div><!-- end postss-snippet -->
 
-                                            <div class="media media-card media--card align-items-center">
-                                            <div class="votes answered-accepted">
-                                    <div class="vote-block d-flex align-items-center justify-content-between" title="Votes">
-                                        <span class="vote-counts"><?= $row['rank'] ?></span>
-                                        <i class="ml-2 fad fa-thumbs-up"></i>
-                                    </div>
-                                    <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                        <span class="vote-counts"><?= $row['comments_rank'] ?></span>
-                                        <i class="ml-2 fad fa-comments"></i>
-                                    </div>
-                                </div>
-                                           
-                                                <div class="media-body">
-                                                    <h5><a href="posts-details.php?8829988P=<?= $row['postId'] ?>"><?= $row['title'] ?></a></h5>
-                                                    <small class="meta">
-                                                        <span class="pr-1"><?= time_elapsed_string($row['date']); ?></span>
-                                                    </small>
-                                                    <div class="tags">
-                                                        <?php $tags =  explode(",",$row['tags']); 
-                                                            foreach($tags as $tags){
-                                                           
-                                                        ?>
-                                                        <a href="posts.php?tags=<?= $tags ?>" class="tag-link"><?= $tags; ?></a>
-
-                                                        <?php 
-                                                            }
-                                                        ?>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </div><!-- end media -->
-                            
-                                        </div><!-- end postss-snippet -->
-
-                                        <?php
-}
+    <?php 
+    }
 }  else {
 
     ?>
@@ -509,7 +505,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                 ?>
 
                 <div class="card card-item p-4">
-                        <h3 class="fs-17 pb-3">Tranding Posts</h3>
+                        <h3 class="fs-17 pb-3">Trending Posts</h3>
                         <div class="divider"><span></span></div>
                         <div class="sidebar-questions pt-3">
 
@@ -594,7 +590,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
 <section class="get-started-area pt-80px pb-50px pattern-bg bg-gray">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-title">AskMyBrand Q&A communities are different. <br> Here's how</h2>
+            <h2 class="section-title">We, Q&A communities are different. <br> Here's how</h2>
         </div>
         <div class="row pt-50px">
             <div class="col-lg-4 responsive-column-half">
@@ -602,7 +598,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                     <div class="card-body">
                         <img src="images\bubble.png" alt="bubble">
                         <h5 class="card-title pt-4 pb-2">Expert communities.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                        <p class="card-text"> </p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
@@ -611,7 +607,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                     <div class="card-body">
                         <img src="images\vote.png" alt="vote">
                         <h5 class="card-title pt-4 pb-2">The right answer. Right on top.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
@@ -620,7 +616,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                     <div class="card-body">
                         <img src="images\check.png" alt="check">
                         <h5 class="card-title pt-4 pb-2">Share knowledge. Earn trust.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->

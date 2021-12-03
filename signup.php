@@ -102,7 +102,7 @@ input[type="radio"] {
                 <div class="col-lg-5 mx-auto">
                     <div class="form-action-wrapper py-5">
                         <div class="form-group">
-                            <h3 class="fs-22 pb-3 fw-bold">Join the AskMyBrand Community</h3>
+                            <h3 class="fs-22 pb-3 fw-bold">Join US and Be part of our Community</h3>
                             <div class="divider"><span></span></div>
                             <?php 
                                 if(!empty($errorMessage)){
@@ -111,7 +111,7 @@ input[type="radio"] {
                                     <?php
                                 }
                             ?>
-                            <p class="pt-3">Give us some of your information to get free access to AskMyBrand.</p>
+                            <p class="pt-3">Give us some of your information to get free access to our web.</p>
                         </div>
                         <div class="form-group">
                             <label class="fs-14 text-black fw-medium lh-18">Display name</label>

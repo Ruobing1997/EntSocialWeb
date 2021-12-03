@@ -21,9 +21,8 @@ include 'includes/header.php';
                     <div class="row">
                         <div class="col-sm-12 col-xsm-12 col-md-9 m-auto">
                             <div class="hero-content">
-                                <h2 class="section-title fs-50 pb-3 text-white lh-65">Join the world's biggest Q&A network!</h2>
-                                <p class="lh-26 text-white">This is just a simple text made for this unique and awesome
-                                    template, you can replace it with any text.</p>
+                                <h2 class="section-title fs-50 pb-3 text-white lh-65">Welcome to the Q & A discussion web!</h2>
+                                <p class="lh-26 text-white">This is designed by a CMU student and want to server for people to post their questions and share opinions!</p>
 
                                     <form action="posts.php" method="get" class="row mr-4 mt-4">
                         
@@ -58,7 +57,7 @@ include 'includes/header.php';
                             class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
                             <div class="media-body">
                             <img src="https://img.icons8.com/emoji/32/000000/question-mark-emoji.png"/>
-                                <h5 class="fw-semi-bold pb-2">80+ million</h5>
+                                <h5 class="fw-semi-bold pb-2">80+ million :P</h5>
                                 <p class="lh-20">Monthly visitors to our network</p>
                             </div>
                         </div>
@@ -68,7 +67,7 @@ include 'includes/header.php';
                             class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
                             <div class="media-body">
                             <img src="https://img.icons8.com/cotton/32/000000/remove-user-1.png"/>
-                                <h5 class="fw-semi-bold pb-2">25+ Million</h5>
+                                <h5 class="fw-semi-bold pb-2">25+ Million :P</h5>
                                 <p class="lh-20">Questions asked to-date</p>
                             </div>
                         </div>
@@ -78,7 +77,7 @@ include 'includes/header.php';
                             class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
                             <div class="media-body">
                             <img src="https://img.icons8.com/color/32/000000/property-with-timer.png"/>
-                                <h5 class="fw-semi-bold pb-2">14.7 seconds</h5>
+                                <h5 class="fw-semi-bold pb-2">14.7 seconds :P</h5>
                                 <p class="lh-20">Average time between new questions</p>
                             </div>
                         </div>
@@ -88,7 +87,7 @@ include 'includes/header.php';
                             class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
                             <div class="media-body">
                             <img src="https://img.icons8.com/color/32/000000/male-female-user-group.png"/>
-                                <h5 class="fw-semi-bold pb-2">40+ Billion</h5>
+                                <h5 class="fw-semi-bold pb-2">40+ Billion :P</h5>
                                 <p class="lh-20">Registered Users</p>
                             </div>
                         </div>
@@ -98,7 +97,7 @@ include 'includes/header.php';
                             class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
                             <div class="media-body">
                             <img src="https://img.icons8.com/officel/32/000000/related-companies.png"/>
-                                <h5 class="fw-semi-bold pb-2">10,000+</h5>
+                                <h5 class="fw-semi-bold pb-2">10,000+ :P</h5>
                                 <p class="lh-20">Customer brands for all time</p>
                             </div>
                         </div>
@@ -153,7 +152,7 @@ include 'includes/header.php';
     <section class="client-logo-area section--padding bg-radial-gradient-gray">
         <div class="container">
             <div class="client-logo-box">
-                <h3 class="fs-21 text-center text-gray">Thousands of organizations around the globe use AskMyBrand for
+                <h3 class="fs-21 text-center text-gray">Thousands of Universities' choice
                     Teams</h3>
                 <div class="row justify-content-center text-center pt-50px">
                     <div class="col-lg-3 responsive-column-half">
@@ -201,7 +200,7 @@ include 'includes/header.php';
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title pb-3">For developers, by developers</h2>
-                <p class="section-desc w-50 mx-auto">AskMyBrand is an open community for anyone that codes. We help you get
+                <p class="section-desc w-50 mx-auto">Ask From CMU is an open community for anyone that codes. We help you get
                     answers
                     to your toughest coding questions, share knowledge with your coworkers in private,
                     and find your next dream job.
@@ -245,8 +244,7 @@ include 'includes/header.php';
                                 </g>
                             </svg>
                             <h5 class="card-title pt-4 pb-2">Public Q&A</h5>
-                            <p class="card-text pb-4">This is just a simple text made for this unique and awesome
-                                template, you can easily edit it as you want.</p>
+                            <p class="card-text pb-4"></p>
                             <a href="home-2.html" class="btn theme-btn">Browse questions <i
                                     class="la la-arrow-right icon ml-1"></i></a>
                         </div><!-- end card-body -->
@@ -298,8 +296,7 @@ include 'includes/header.php';
                                     fill="#2f3a5a"></path>
                             </svg>
                             <h5 class="card-title pt-4 pb-2">Private Q&A</h5>
-                            <p class="card-text pb-4">This is just a simple text made for this unique and awesome
-                                template, you can easily edit it as you want.</p>
+                            <p class="card-text pb-4"></p>
                             <a href="free-demo.html" class="btn theme-btn bg-3">Try for free <i
                                     class="la la-arrow-right icon ml-1"></i></a>
                         </div><!-- end card-body -->
@@ -397,8 +394,7 @@ include 'includes/header.php';
                                 </g>
                             </svg>
                             <h5 class="card-title pt-4 pb-2">Browse jobs</h5>
-                            <p class="card-text pb-4">This is just a simple text made for this unique and awesome
-                                template, you can easily edit it as you want.</p>
+                            <p class="card-text pb-4"></p>
                             <a href="careers.html" class="btn theme-btn">Find a job <i
                                     class="la la-arrow-right icon ml-1"></i></a>
                         </div><!-- end card-body -->
@@ -418,9 +414,7 @@ include 'includes/header.php';
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title pb-3">For businesses, by developers</h2>
-                <p class="section-desc w-50 mx-auto">This is just a simple text made for this unique and awesome
-                    template,
-                    you can replace it with any text.
+                <p class="section-desc w-50 mx-auto">
                 </p>
             </div>
             <div class="row pt-50px">
@@ -724,8 +718,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Increase productivity</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-4 -->
@@ -740,8 +733,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Accelerate time to market</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-4 -->
@@ -756,8 +748,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Protect institutional knowledge</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-4 -->
@@ -791,7 +782,7 @@ include 'includes/header.php';
                             </path>
                         </svg>
                         <h5 class="card-title pt-4 pb-2">DevOps engineers</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end col -->
                 <div class="col responsive-column-half card card-item case-card text-center">
@@ -805,7 +796,7 @@ include 'includes/header.php';
                             </path>
                         </svg>
                         <h5 class="card-title pt-4 pb-2">Data scientists</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end col -->
                 <div class="col responsive-column-half card card-item case-card text-center case-card-is-active">
@@ -819,7 +810,7 @@ include 'includes/header.php';
                             </path>
                         </svg>
                         <h5 class="card-title pt-4 pb-2">Software engineers</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end col -->
                 <div class="col responsive-column-half card card-item case-card text-center">
@@ -833,7 +824,7 @@ include 'includes/header.php';
                             </path>
                         </svg>
                         <h5 class="card-title pt-4 pb-2">Support teams</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end col -->
                 <div class="col responsive-column-half card card-item case-card text-center">
@@ -850,7 +841,7 @@ include 'includes/header.php';
                                 opacity=".35"></path>
                         </svg>
                         <h5 class="card-title pt-4 pb-2">Engineering leaders</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template.</p>
+                        <p class="card-text"></p>
                     </div><!-- end card-body -->
                 </div><!-- end col -->
             </div><!-- end row -->
@@ -991,11 +982,9 @@ include 'includes/header.php';
                             </svg>
                         </div>
                         <div class="info-body">
-                            <h5 class="pb-4 fs-28 fw-bold">Hire your technical talent</h5>
-                            <p class="pb-4">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                that</p>
-                            <a href="talent.html" class="btn theme-btn">AskMyBrand Talent <i
+                            <h5 class="pb-4 fs-28 fw-bold">Start here with your new network</h5>
+                            <p class="pb-4"> Ask Answer and be friends</p>
+                            <a href="talent.html" class="btn theme-btn">Ask Me Everything <i
                                     class="la la-arrow-right icon ml-1"></i></a>
                         </div>
                     </div>
@@ -1107,7 +1096,7 @@ include 'includes/header.php';
                             <p class="pb-4">It is a long established fact that a reader will be distracted by the
                                 readable content of a page when looking at its layout. The point of using Lorem Ipsum is
                                 that</p>
-                            <a href="advertising.html" class="btn theme-btn">AskMyBrand Advertising <i
+                            <a href="advertising.html" class="btn theme-btn">Support US! <i
                                     class="la la-arrow-right icon ml-1"></i></a>
                         </div>
                     </div>
@@ -1127,7 +1116,7 @@ include 'includes/header.php';
     <section class="get-started-area section--padding">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title">Learn and grow with AskMyBrand</h2>
+                <h2 class="section-title">Learn and grow with US</h2>
             </div>
             <div class="row pt-50px">
                 <div class="col-lg-3 responsive-column-half">
@@ -1163,8 +1152,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Write the script of the future</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-3 -->
@@ -1192,8 +1180,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Support open source</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-3 -->
@@ -1255,8 +1242,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Acquire and share knowledge</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-3 -->
@@ -1272,8 +1258,7 @@ include 'includes/header.php';
                         </div>
                         <div class="info-body">
                             <h3 class="fs-18 pb-3 fw-bold">Find career opportunities</h3>
-                            <p>This is just a simple text made for this unique and awesome template, you can replace it
-                                with any text.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div><!-- end col-lg-3 -->

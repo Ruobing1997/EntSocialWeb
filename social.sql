@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 10:44 AM
+-- Generation Time: Dec 03, 2021 at 11:02 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -35,6 +35,13 @@ CREATE TABLE `comments` (
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `userId`, `postId`, `comment`, `datetime`) VALUES
+(4, 38, 9, 'test', '2021-12-03 14:36:30');
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +59,7 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`id`, `userId`, `postId`) VALUES
-(3, 38, 8);
+(6, 40, 11);
 
 -- --------------------------------------------------------
 
@@ -76,7 +83,10 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `userId`, `title`, `tags`, `details`, `file`, `date`) VALUES
 (8, 37, 'Test Posts', 'test,tag', 'This is to test!', '56857dbdf645b55f690df0d4cc2bf703.', '2021-12-03 10:41:32'),
-(9, 37, 'Another Post!', 'post,test', 'Here is another a post!', '3175deb0a64b5811185a941dcb04b3b2.', '2021-12-03 10:42:12');
+(9, 37, 'Another Post!', 'post,test', 'Here is another a post!', '3175deb0a64b5811185a941dcb04b3b2.', '2021-12-03 10:42:12'),
+(10, 40, 'post to test related', 'test', 'test posts', 'e4a8fe6ad46d9f4989c8f07ecfd4e276.', '2021-12-03 21:42:54'),
+(11, 40, 'Test search page', 'search', 'This is to test the search page', '6189b95cfe28bd6c2c0e56e7584a53da.', '2021-12-03 22:14:31'),
+(12, 40, 'make test question', 'question', 'this is a sample test question', '05c9f0c95d8e39fc1c414b3132a6da97.', '2021-12-03 22:50:08');
 
 -- --------------------------------------------------------
 
@@ -108,7 +118,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullName`, `profilePhoto`, `location`, `aboutMe`, `twitterLink`, `facebookLink`, `instagramLink`, `youtubeLink`, `email`, `password`, `authtoken`, `status`, `type`, `datetime`) VALUES
 (37, 'Ruobing Wang', '', '', '', '', '', '', '', 'ruobing2@andrew.cmu.edu', 'e10adc3949ba59abbe56e057f20f883e', '', 'active', 'user', '2021-12-03 04:41:06'),
-(38, 'testuser1', '', '', '', '', '', '', '', 'testuser1@test1.com', '202cb962ac59075b964b07152d234b70', '', 'active', 'user', '2021-12-03 04:42:42');
+(38, 'testuser1', '', '', '', '', '', '', '', 'testuser1@test1.com', '202cb962ac59075b964b07152d234b70', '', 'active', 'user', '2021-12-03 04:42:42'),
+(39, 'Robin', '', '', '', '', '', '', '', 'robin@test.com', 'e10adc3949ba59abbe56e057f20f883e', '', 'active', 'user', '2021-12-03 15:13:40'),
+(40, 'RobinFromCMU', '', '', '', '', '', '', '', 'testuser888@test.com', 'a550a85bcdda69a00506155ad8d11170', '', 'active', 'user', '2021-12-03 15:29:17');
 
 -- --------------------------------------------------------
 
@@ -128,8 +140,7 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `userId`, `postId`, `vote`) VALUES
-(54, 37, 8, '1'),
-(55, 38, 8, '1');
+(63, 40, 11, '1');
 
 --
 -- Indexes for dumped tables
@@ -173,31 +184,31 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

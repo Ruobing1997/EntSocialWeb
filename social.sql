@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 07:40 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Dec 03, 2021 at 10:44 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,15 +35,6 @@ CREATE TABLE `comments` (
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`id`, `userId`, `postId`, `comment`, `datetime`) VALUES
-(1, 2, 2, 'asdasd', '2021-08-06 22:57:35'),
-(2, 2, 2, '', '2021-08-06 23:08:43'),
-(3, 2, 7, 'asdasd', '2021-12-01 15:48:52');
-
 -- --------------------------------------------------------
 
 --
@@ -61,7 +52,7 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`id`, `userId`, `postId`) VALUES
-(2, 2, 7);
+(3, 38, 8);
 
 -- --------------------------------------------------------
 
@@ -84,13 +75,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `userId`, `title`, `tags`, `details`, `file`, `date`) VALUES
-(1, 2, 'asd', 'sfsd,e3tb,asd,dfgh5t', 'asd\r\nasd\r\nasd\r\nasd\r\nasd', '', '2021-07-26 00:00:00'),
-(2, 2, 'asda jsjf ajshiueqh asd', 'ad, as, a,sd a,sd,asd', 'asd\r\nas \r\nasd\r\n ', '', '2021-07-26 00:00:00'),
-(3, 2, 'sadasd', 'asd', 'asd', '', '2021-11-30 21:56:10'),
-(4, 2, 'asdasd', 'asd asd,asdasd asd', 'asdasd', '192438e425a15665492b13674bbd4407.jpg', '2021-11-30 21:59:37'),
-(5, 2, 'asd asd', 'sadasd,asd', 'sadasd', '1e3af7db40c95778b73bab820af3f0ef.jpg', '2021-11-30 03:00:23'),
-(6, 2, 'me', 'asd', 'asd', 'b34c3acc3b59a79b32796b2cb5918d67.', '2021-11-30 18:15:28'),
-(7, 2, 'asd', 'asd', 'asd', '812c97638eb7bf0edbf08e91e7f76218.', '2021-11-30 18:25:05');
+(8, 37, 'Test Posts', 'test,tag', 'This is to test!', '56857dbdf645b55f690df0d4cc2bf703.', '2021-12-03 10:41:32'),
+(9, 37, 'Another Post!', 'post,test', 'Here is another a post!', '3175deb0a64b5811185a941dcb04b3b2.', '2021-12-03 10:42:12');
 
 -- --------------------------------------------------------
 
@@ -121,10 +107,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullName`, `profilePhoto`, `location`, `aboutMe`, `twitterLink`, `facebookLink`, `instagramLink`, `youtubeLink`, `email`, `password`, `authtoken`, `status`, `type`, `datetime`) VALUES
-(1, 'Arden Smithasdsa', '', 'United Statesasdsa', 'asdasd', 'asd', 'asd', 'asd', 'asd', 'admin@website.com', '21232f297a57a5a743894a0e4a801fc3', '', 'active', 'admin', '2021-06-16 20:04:08'),
-(2, 'Wasim Suleman', '51cd624f115b32a18e0450a2c9031afe.jpg', 'United States', 'ausdsadasdasdasdhasdasdjasd<p><br></p><p><br></p><p> ajsdasd   jaksdkasdk              asdasd                    asd                                asdas                           asd                     asdas d                          asdsadhasd</p>', 'twitter.com/w33svm', 'facebook.com/w33svm', 'facebook.com/w33svm', 'youtube.com/w33svm', 'wasimsuleman.ws@gmail.com', '698d51a19d8a121ce581499d7b701668', '', 'active', 'user', '2021-06-16 20:04:08'),
-(35, 'Steelforge', '', '', '', '', '', '', '', 'afran1@yahoo.fr', '698d51a19d8a121ce581499d7b701668', '', 'active', 'user', '2021-08-08 17:22:38'),
-(36, 'Wasim Suleman', '', '', '', '', '', '', '', '123@website.com', '698d51a19d8a121ce581499d7b701668', '', 'deleted', 'user', '2021-12-01 12:33:42');
+(37, 'Ruobing Wang', '', '', '', '', '', '', '', 'ruobing2@andrew.cmu.edu', 'e10adc3949ba59abbe56e057f20f883e', '', 'active', 'user', '2021-12-03 04:41:06'),
+(38, 'testuser1', '', '', '', '', '', '', '', 'testuser1@test1.com', '202cb962ac59075b964b07152d234b70', '', 'active', 'user', '2021-12-03 04:42:42');
 
 -- --------------------------------------------------------
 
@@ -144,9 +128,8 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `userId`, `postId`, `vote`) VALUES
-(14, 2, 1, '1'),
-(16, 2, 2, '1'),
-(53, 2, 7, '1');
+(54, 37, 8, '1'),
+(55, 38, 8, '1');
 
 --
 -- Indexes for dumped tables
@@ -196,25 +179,25 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

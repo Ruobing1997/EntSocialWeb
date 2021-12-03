@@ -268,7 +268,7 @@ include 'includes/header.php';
                                     (SELECT COUNT(id) AS comments_count FROM comments WHERE postId = posts.id) AS comments_rank, posts.id as postId
                                     FROM votes 
                                     LEFT JOIN posts
-                                    ON votes.postId = posts.id WHERE posts.userId = '".$_SESSION["Userid"]."'  ORDER BY rank desc LIMIT 10");
+                                    ON votes.postId = posts.id WHERE posts.userId = '".$_SESSION["Userid"]."'  GROUP by votes.postId  ORDER BY rank desc LIMIT 10");
                                     foreach($posts as $posts){
 
 
@@ -325,7 +325,7 @@ include 'includes/header.php';
                                     ON votes.postId = posts.id
                                     LEFT JOIN favorites
                                     ON posts.id = favorites.postId
-                                    WHERE favorites.userId = '".$_SESSION["Userid"]."'  ORDER BY rank desc LIMIT 10");
+                                    WHERE favorites.userId = '".$_SESSION["Userid"]."'   GROUP by votes.postId  ORDER BY rank desc LIMIT 10");
                                     foreach($posts as $posts){
 
 

@@ -147,7 +147,7 @@ include 'includes/header.php';
                     <div class="question-highlight">
                         <div class="media media-card shadow-none rounded-0 mb-0 bg-transparent p-0">
                             <div class="media-body">
-                                <h5 class="fs-20"><a href="question-details.php"><?= $posts['title'] ?></a></h5>
+                                <h5 class="fs-20"><a href="posts-details.php"><?= $posts['title'] ?></a></h5>
                                 <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
                                     <div class="pr-3">
                                         <span>postsed</span>
@@ -361,7 +361,7 @@ include 'includes/header.php';
 
                             $posts = $data->getData("SELECT *, (SELECT COUNT(id) AS count FROM votes WHERE postId = posts.id) AS rank, posts.id as postId FROM votes 
                             LEFT JOIN posts
-                            ON votes.postId = posts.id ORDER BY rank desc LIMIT 5");
+                            ON votes.postId = posts.id  GROUP by votes.postId ORDER BY rank desc LIMIT 5");
                             foreach($posts as $posts){
 
 
@@ -369,7 +369,7 @@ include 'includes/header.php';
 
                             <div class="media media-card media--card media--card-2">
                                 <div class="media-body">
-                                    <h5><a href="question-details.php?8829988P=<?= $posts['postId'] ?>"><?= $posts['title'] ?></a></h5>
+                                    <h5><a href="posts-details.php?8829988P=<?= $posts['postId'] ?>"><?= $posts['title'] ?></a></h5>
                                     <small class="meta">
                                         <span class="pr-1"><?= time_elapsed_string($posts['date']); ?></span>
                                         
@@ -418,7 +418,7 @@ include 'includes/header.php';
 
                             <div class="media media-card media--card media--card-2">
                                 <div class="media-body">
-                                    <h5><a href="question-details.php?8829988P=<?= $posts['id'] ?>"><?= $posts['title'] ?></a></h5>
+                                    <h5><a href="posts-details.php?8829988P=<?= $posts['id'] ?>"><?= $posts['title'] ?></a></h5>
                                     <small class="meta">
                                         <span class="pr-1"><?= time_elapsed_string($posts['date']); ?></span>
                                         

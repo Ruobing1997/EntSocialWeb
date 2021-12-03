@@ -477,7 +477,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                               $in = explode(",",$in);
 
                             $posts = $data->getData("SELECT *, (SELECT COUNT(id) FROM votes WHERE postId = posts.id) AS `rank`, posts.id as postId FROM votes 
-                            LEFT JOIN posts ON votes.postId = posts.id ORDER BY `rank` DESC LIMIT 5");
+                            LEFT JOIN posts ON votes.postId = posts.id  GROUP by votes.postId ORDER BY `rank` DESC LIMIT 5");
                             foreach($posts as $posts){
                                
                                
@@ -516,7 +516,7 @@ href="<?php $_SERVER['PHP_SELF']?>?currentpage=<?php echo $totalpages ?>"><i
                         <?php
 
                             $posts = $data->getData("SELECT *, (SELECT COUNT(id) FROM votes WHERE postId = posts.id) AS `rank`, posts.id as postId FROM votes 
-                            LEFT JOIN posts ON votes.postId = posts.id ORDER BY `rank` DESC LIMIT 5");
+                            LEFT JOIN posts ON votes.postId = posts.id  GROUP by votes.postId ORDER BY `rank` DESC LIMIT 5");
                             foreach($posts as $posts){
 
 
